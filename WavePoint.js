@@ -34,6 +34,10 @@ class WavePoint {
     this.pos.z =
       sin(this.pos.x * 0.05 + t * params.waveFrequency * 0.5) * (params.amplitude * 0.2);
 
+    this.applyForce(
+      p5.Vector.sub(createVector(mouseX - width/2, mouseY - height/2, 0), this.pos).mult(0.00005)
+  );
+
     this.currentScale = max(0.1, params.thickness * this.scale);
   }
 
