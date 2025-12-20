@@ -8,7 +8,9 @@ class ParticleSystem {
 
 applyForces(listener) {
     for (let p of this.particles) {
-
+        let dir = p5.Vector.sub(listener, p.pos);
+        let d = dir.mag();
+        dir.normalize();
     }
 }
 
