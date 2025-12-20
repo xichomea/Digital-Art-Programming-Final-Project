@@ -7,6 +7,9 @@ function setup() {
 
 function draw() {
   background(220);
+
+  let listener = createVector(mouseX, mouseY);
+
   system.applyForces();
   system.display();
   system.update();
