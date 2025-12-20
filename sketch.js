@@ -8,4 +8,5 @@ function setup() {
 function draw() {
   background(220);
   system.display();
+  system.update();
 }
