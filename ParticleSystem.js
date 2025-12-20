@@ -6,6 +6,12 @@ class ParticleSystem {
     }
     }
 
+update() {
+    for(let p of this.particles) {
+        p.update();
+    }
+}
+
 display() {
     for (let p of this.particles) {
         p.display();
