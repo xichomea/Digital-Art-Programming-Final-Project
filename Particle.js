@@ -4,9 +4,13 @@ class Particle {
         this.vel = p5.Vector.random2D();
     }
 
+applyForce(force) {
+    this.acc.add(force);
+}
+
 update() {
     this.pos.add(this.vel);
-    this.add = createVector(0, 0);
+    this.acc = createVector(0, 0);
 }
 
 display() {
