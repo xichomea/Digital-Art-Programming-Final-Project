@@ -11,6 +11,11 @@ applyForces(listener) {
         let dir = p5.Vector.sub(listener, p.pos);
         let d = dir.mag();
         dir.normalize();
+
+        if (d < 100) {
+            let repel = dir.copy().mult(-0.5);
+            p.applyForce(repel);
+        }
     }
 }
 
