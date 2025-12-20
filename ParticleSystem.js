@@ -6,8 +6,14 @@ class ParticleSystem {
     }
     }
 
+applyforces() {
+    for (let p of this.particles) {
+        
+    }
+}
+
 update() {
-    for(let p of this.particles) {
+    for (let p of this.particles) {
         p.update();
     }
 }
