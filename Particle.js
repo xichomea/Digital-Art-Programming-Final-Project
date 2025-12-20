@@ -1,5 +1,5 @@
 class Particle {
     constructor() {
-        this.pos = createVector(0,0);
+        this.pos = createVector(random(width), random(height));
     }
 }
