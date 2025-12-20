@@ -16,6 +16,11 @@ applyForces(listener) {
             let repel = dir.copy().mult(-0.5);
             p.applyForce(repel);
         }
+
+        if (d > 150) {
+            let attract = dir.copy().mult(0.1);
+            p.applyForce(attract);
+        }
     }
 }
 
