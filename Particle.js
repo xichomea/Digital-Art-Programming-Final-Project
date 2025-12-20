@@ -5,7 +5,8 @@ class Particle {
     }
 
 update() {
-    this.pos.add(this,vel);
+    this.pos.add(this.vel);
+    this.add = createVector(0, 0);
 }
 
 display() {
