@@ -2,6 +2,7 @@ class Particle {
     constructor() {
         this.pos = createVector(random(width), random(height));
         this.vel = p5.Vector.random2D();
+        this.acc = createVector(0 ,0);
     }
 
 applyForce(force) {
