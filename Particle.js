@@ -19,6 +19,7 @@ update() {
 
 display() {
     noStroke();
+    fill(150);
     ellipse(this.pos.x, this.pos.y, 5);
 }
 }

@@ -6,7 +6,7 @@ function setup() {
 }
 
 function draw() {
-  background(220);
+  background(30);
 
   let listener = createVector(mouseX, mouseY);
 
