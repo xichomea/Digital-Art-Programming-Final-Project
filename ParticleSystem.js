@@ -6,9 +6,9 @@ class ParticleSystem {
     }
     }
 
-applyforces() {
+applyForces() {
     for (let p of this.particles) {
-        
+
     }
 }
 

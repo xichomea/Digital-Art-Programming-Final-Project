@@ -7,6 +7,7 @@ function setup() {
 
 function draw() {
   background(220);
+  system.applyForces();
   system.display();
   system.update();
 }
