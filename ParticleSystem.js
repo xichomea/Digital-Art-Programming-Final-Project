@@ -6,7 +6,7 @@ class ParticleSystem {
     }
     }
 
-applyForces() {
+applyForces(listener) {
     for (let p of this.particles) {
 
     }
