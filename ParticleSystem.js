@@ -5,4 +5,10 @@ class ParticleSystem {
         this.particles.push(new Particle());
     }
     }
+
+display() {
+    for (let p of this.particles) {
+        p.display();
+    }
+}
 } 
