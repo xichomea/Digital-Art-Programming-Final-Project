@@ -1,9 +1,9 @@
-class ParticleSystem {
+class SoundField {
     constructor() {
         this.particles = [];
         
         for (let i = 0; i < 50; i++) {
-            this.particles.push(new Particle());
+            this.particles.push(new SoundParticle());
     }
     }
 
@@ -47,7 +47,8 @@ applyForces(listener) {
 
 update() {
     for (let p of this.particles) {
-        p.update();
+      let outside = this.isOutsideWindow(p.pos);
+        p.update(outside);
     }
 }
 

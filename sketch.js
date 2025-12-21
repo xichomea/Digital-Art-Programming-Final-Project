@@ -6,7 +6,7 @@ function setup() {
 
   windowRect = {x: 150, y: 80, w: 300, h: 240};
 
-  system = new ParticleSystem();
+  system = new SoundField();
 }
 
 function draw() {
