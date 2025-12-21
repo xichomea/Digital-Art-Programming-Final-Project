@@ -25,18 +25,24 @@ applyForces(listener) {
         let d = dir.mag();
         dir.normalize();
 
-        // repel (가까우면 밀기)
-        if (outside && d < 100) {
-            let repel = dir.copy().mult(-0.5);
-            p.applyForce(repel);
-        }
-
-        // attract (멀면 당기기)
-        if (outside && d > 150) {
-            let attract = dir.copy().mult(0.1);
-            p.applyForce(attract);
-        }
+    if (outside) {
+      if (d < 120) {          // repel (가까우면 밀기)
+        let repel = dir.copy().mult(-1.0);
+        p.applyForce(repel);
+      }
+      if (d > 150) {          // attract (멀면 당기기)
+        let attract = dir.copy().mult(0.2);
+        p.applyForce(attract);
+      }
     }
+
+    else {
+      if (d > 200) {
+        let gentleAttract = dir.copy().mult(0.05);
+        p.applyForce(gentleAttract);
+      }
+    }
+  }
 }
 
 update() {
