@@ -47,7 +47,8 @@ update() {
 
 display() {
     for (let p of this.particles) {
-        p.display();
+        let outside = this.isOutsideWindow(p.pos);
+        p.display(outside);
     }
 }
 } 
