@@ -11,9 +11,14 @@ applyForce(force) {
     this.acc.add(f);
 }
 
-update() {
-    this.vel.add(this.acc);
+update(outside) {
+    if (outside) {
+        this.vel.add(p5.Vector.random2D().mult(0.5 + random(-0.1, 0.1)));
+    } else {
+        this.vel.add(p5.Vector.random2D().mult(0.08));
+    }
     this.pos.add(this.vel);
+    this.vel.mult(0.95);
     this.acc.mult(0);
 }
 
