@@ -7,10 +7,10 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 
   windowRect = {
-    x: width/2 - 150, 
-    y: height/2 - 120, 
-    w: 300, 
-    h: 240
+    x: width/2 - 300, 
+    y: height/2 - 240, 
+    w: 600, 
+    h: 480
   };
 
   stateSlider = createSlider(0, 100, 50);
