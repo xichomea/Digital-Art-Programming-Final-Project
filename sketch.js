@@ -23,6 +23,6 @@ function draw() {
 
   let listener = createVector(mouseX, mouseY);
   system.applyForces(listener);
-  system.display();
   system.update();
+  system.display();
 }
