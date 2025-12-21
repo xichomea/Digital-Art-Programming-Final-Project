@@ -19,6 +19,10 @@ isOutsideWindow(pos) {
 applyForces(listener) {
     for (let p of this.particles) {
 
+        if (!this.isOutsideWindow(p.pos)) {
+            continue;
+        }
+
         // listener와 거리 계산
         let dir = p5.Vector.sub(listener, p.pos);
         let d = dir.mag();
