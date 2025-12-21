@@ -10,10 +10,10 @@ function setup() {
 }
 
 function draw() {
-  background(100, 180, 255);
+  background(70, 130, 180);
 
   noStroke();
-  fill(80, 50, 120, 180);
+  fill(255, 220, 220, 180);
   rect(windowRect.x, windowRect.y, windowRect.w, windowRect.h)
 
   stroke(255);
