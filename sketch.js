@@ -1,7 +1,16 @@
 let system;
+let windowRect;
 
 function setup() {
   createCanvas(600, 400);
+
+  windowRect = {
+    x: 150,
+    y: 80,
+    w: 300,
+    h: 240
+  };
+
   system = new ParticleSystem();
 }
 
