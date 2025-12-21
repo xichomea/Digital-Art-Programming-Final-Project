@@ -1,8 +1,7 @@
 class SoundField {
     constructor() {
         this.particles = [];
-        
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 100; i++) {
             this.particles.push(new SoundParticle());
     }
     }
@@ -16,34 +15,16 @@ isOutsideWindow(pos) {
     );
 }
 
-applyForces(listener) {
+applyForces() {
     for (let p of this.particles) {
         let outside = this.isOutsideWindow(p.pos);
 
-        // listener와 거리 계산
-        let dir = p5.Vector.sub(listener, p.pos);
-        let d = dir.mag();
-        dir.normalize();
-
     if (outside) {
-      if (d < 120) {          // repel (가까우면 밀기)
-        let repel = dir.copy().mult(-1.0);
-        p.applyForce(repel);
-      }
-      if (d > 150) {          // attract (멀면 당기기)
-        let attract = dir.copy().mult(0.2);
-        p.applyForce(attract);
-      }
-    }
-
-    else {
-      if (d > 200) {
-        let gentleAttract = dir.copy().mult(0.05);
-        p.applyForce(gentleAttract);
+        let gentleDrift = p5.Vector.random2D().mult(0.05);
+        p.applyForce(gentleDrift);
       }
     }
   }
-}
 
 update() {
     for (let p of this.particles) {
@@ -52,10 +33,10 @@ update() {
     }
 }
 
-display() {
+display(stateValue) {
     for (let p of this.particles) {
         let outside = this.isOutsideWindow(p.pos);
-        p.display(outside);
+        p.display(outside, stateValue);
     }
 }
 } 

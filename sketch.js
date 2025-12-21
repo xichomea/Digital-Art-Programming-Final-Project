@@ -1,5 +1,7 @@
 let system;
 let windowRect;
+let stateSlider;
+let stateLabel;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -11,11 +13,22 @@ function setup() {
     h: 240
   };
 
+  stateSlider = createSlider(0, 100, 50);
+  stateSlider.position(20, 20);
+  stateSlider.style('width', '200px');
+
+  stateLabel = createDiv('내 상태: 50');
+  stateLabel.position(20, 45);
+  stateLabel.style('color', 'white');
+
   system = new SoundField();
 }
 
 function draw() {
   background(70, 130, 180);
+
+  let stateValue = stateSlider.value();
+  stateLabel.html('내 상태: ' + stateValue);
 
   noStroke();
   fill(255, 220, 220, 180);
@@ -33,11 +46,12 @@ function draw() {
   
   let listener = createVector(mouseX, mouseY);
 
-  system.applyForces(listener);
+  system.applyForces();
   system.update();
-  system.display();
+  system.display(stateValue);
+}
 
-  function windowResized() {
+function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   windowRect = {
     x: width / 2 - 150,
@@ -45,5 +59,4 @@ function draw() {
     w: 300,
     h: 240
   };
-}
 }

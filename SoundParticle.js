@@ -1,10 +1,10 @@
 class SoundParticle {
     constructor() {
         this.pos = createVector(random(width), random(height));
-        this.vel = p5.Vector.random2D();
+        this.vel = p5.Vector.random2D().mult(random(0.5, 1.5));
         this.acc = createVector(0 ,0);
         this.mass = random(0.5, 1.5);
-        this.type = random() > 0.5 ? 'good' : 'bad';
+        this.type = random() < 0.5 ? 'good' : 'bad';
     }
 
 applyForce(force) {
@@ -13,12 +13,8 @@ applyForce(force) {
 }
 
   update(outside) {
-    if (outside) {
-      let randomness = this.type === 'bad' ? 0.8 : 0.5;
-      this.vel.add(p5.Vector.random2D().mult(randomness));
-    } else {
-      this.vel.add(p5.Vector.random2D().mult(0.08));
-    }
+    let noiseForce = p5.Vector.random2D().mult(outside ? 0.15 : 0.05);
+    this.applyForce(noiseForce);
 
     this.vel.add(this.acc);
     this.pos.add(this.vel);
@@ -31,29 +27,32 @@ applyForce(force) {
     if (this.pos.y > height) this.pos.y = 0;
   }
 
-  display(outside) {
+  display(outside, stateValue) {
     noStroke();
+
+    let goodAlpha = map(stateValue, 0, 100, 40, 220);
+    let badAlpha  = map(stateValue, 0, 100, 220, 40);
 
     if (outside) {
       if (this.type === 'good') {
-        fill(255, 255, 150, 200);
-        ellipse(this.pos.x, this.pos.y, 8);
-        fill(255, 255, 200, 100);
+        fill(255, 240, 170, goodAlpha);
+        ellipse(this.pos.x, this.pos.y, 7);
+        fill(255, 250, 210, goodAlpha * 0.4);
         ellipse(this.pos.x, this.pos.y, 14);
       } else {
-        fill(100, 0, 0, 200);
+        fill(120, 20, 20, badAlpha);
         push();
         translate(this.pos.x, this.pos.y);
-        rotate(frameCount * 0.1);
+        rotate(frameCount * 0.02);
         beginShape();
         vertex(0, -6);
-        vertex(4, 4);
-        vertex(-4, 4);
+        vertex(5, 4);
+        vertex(-5, 4);
         endShape(CLOSE);
         pop();
       }
     } else {
-      fill(180, 130, 220, 220);
+      fill(180, 130, 220, 180);
       ellipse(this.pos.x, this.pos.y, 6);
     }
   }
