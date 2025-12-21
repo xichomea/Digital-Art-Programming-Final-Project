@@ -17,9 +17,14 @@ update() {
     this.acc.mult(0);
 }
 
-display() {
+display(outside) {
     noStroke();
-    fill(150);
+    if (outside) {
+    fill(255, 220, 150, 180);
     ellipse(this.pos.x, this.pos.y, 5);
+    } else {
+        fill(180, 130, 220, 220);
+        ellipse(this.pos.x, this.pos.y, 6);
+    }
 }
 }
