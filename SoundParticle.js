@@ -13,8 +13,8 @@ applyForce(force) {
 }
 
   update(outside) {
-    let noiseForce = p5.Vector.random2D().mult(outside ? 0.15 : 0.05);
-    this.applyForce(noiseForce);
+    let drift = p5.Vector.random2D().mult(outside ? 0.15 : 0.04);
+    this.applyForce(drift);
 
     this.vel.add(this.acc);
     this.pos.add(this.vel);

@@ -46,7 +46,7 @@ function draw() {
   
   let listener = createVector(mouseX, mouseY);
 
-  system.applyForces();
+  system.applyForces(listener);
   system.update();
   system.display(stateValue);
 }

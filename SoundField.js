@@ -18,10 +18,26 @@ isOutsideWindow(pos) {
 applyForces() {
     for (let p of this.particles) {
         let outside = this.isOutsideWindow(p.pos);
+        if (!outside) continue;
 
-    if (outside) {
-        let gentleDrift = p5.Vector.random2D().mult(0.05);
-        p.applyForce(gentleDrift);
+      let closestX = constrain(p.pos.x, windowRect.x, windowRect.x + windowRect.w);
+      let closestY = constrain(p.pos.y, windowRect.y, windowRect.y + windowRect.h);
+      let edgePoint = createVector(closestX, closestY);
+
+      let dir = p5.Vector.sub(edgePoint, p.pos);
+      let d = dir.mag();
+      dir.normalize();
+
+      // repel: 가까우면 밀기
+      if (d < 80) {
+        let repel = dir.copy().mult(-0.25);
+        p.applyForce(repel);
+      }
+
+      // attract: 멀면 랜덤 드리프트
+      else if (d > 200) {
+        let attract = p5.Vector.random2D().mult(0.03);
+        p.applyForce(attract);
       }
     }
   }
@@ -38,5 +54,5 @@ display(stateValue) {
         let outside = this.isOutsideWindow(p.pos);
         p.display(outside, stateValue);
     }
-}
+  }
 } 
