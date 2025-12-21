@@ -16,9 +16,9 @@ function draw() {
   fill(80, 50, 120, 180);
   rect(windowRect.x, windowRect.y, windowRect.w, windowRect.h)
 
-  noFill();
   stroke(255);
-  stroke(3);
+  strokeWeight(3);
+  noFill();
   rect(windowRect.x, windowRect.y, windowRect.w, windowRect.h)
 
   let listener = createVector(mouseX, mouseY);
