@@ -17,8 +17,11 @@ function setup() {
 function draw() {
   background(30);
 
-  let listener = createVector(mouseX, mouseY);
+  noFill();
+  stroke(200);
+  rect(windowRect.x, windowRect.y, windowRect.w, windowRect.h)
 
+  let listener = createVector(mouseX, mouseY);
   system.applyForces(listener);
   system.display();
   system.update();
