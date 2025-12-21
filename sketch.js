@@ -26,18 +26,10 @@ function draw() {
   noFill();
   rect(windowRect.x, windowRect.y, windowRect.w, windowRect.h)
 
-  line(
-    windowRect.x + windowRect.w / 2,
-    windowRect.y,
-    windowRect.x + windowRect.w / 2,
-    windowRect.y + windowRect.h
-  );
-  line(
-    windowRect.x,
-    windowRect.y + windowRect.h / 2,
-    windowRect.x + windowRect.w,
-    windowRect.y + windowRect.h / 2
-  );
+  line(windowRect.x + windowRect.w / 2, windowRect.y,
+       windowRect.x + windowRect.w / 2, windowRect.y + windowRect.h);
+  line(windowRect.x, windowRect.y + windowRect.h / 2,
+       windowRect.x + windowRect.w, windowRect.y + windowRect.h / 2);
   
   let listener = createVector(mouseX, mouseY);
 
