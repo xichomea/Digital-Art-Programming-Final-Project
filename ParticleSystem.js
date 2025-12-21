@@ -7,6 +7,15 @@ class ParticleSystem {
     }
     }
 
+isOutsideWindow(pos) {
+    return !(
+        pos.x > windowRect.x &&
+        pos.x < windowRect.x + windowRect.w &&
+        pos.y > windowRect.y &&
+        pos.y < windowRect.y + windowRect.h
+    );
+}
+
 applyForces(listener) {
     for (let p of this.particles) {
 
